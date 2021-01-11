@@ -1,0 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+server:
+  port: 8002
+spring:
+  application:
+    name: search-test
+  devtools:
+    restart:
+      enabled: true
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
