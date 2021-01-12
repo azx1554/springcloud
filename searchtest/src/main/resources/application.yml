@@ -22,12 +22,12 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath*:mybatis/mapper/*.xml
-  type-aliases-package: com.eshore.crmp.data
-  type-handlers-package: com.eshore.crmp.data.encrypt
+  type-aliases-package: com.liandong.dao
+  type-handlers-package: com.liandong.dao
   table:
     auto: update
   model:
-    pack: com.eshore.crmp.data.model
+    pack: com.liandong.dao
   database:
     type: mysql
   configuration:

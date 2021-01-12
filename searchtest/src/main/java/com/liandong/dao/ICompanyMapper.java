@@ -1,4 +1,13 @@
 package com.liandong.dao;
 
-public interface ICompanyMapper {
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+import java.util.Map;
+
+@Mapper
+public interface ICompanyMapper extends BaseMapper{
+
+    List<Map<String,Object>> test();
 }
