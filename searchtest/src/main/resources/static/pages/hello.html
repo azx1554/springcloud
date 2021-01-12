@@ -6,7 +6,130 @@
     <link rel="stylesheet" href="/static/css/layui.css">
 </head>
 <body>
+    <div class="layui-main">
+    <form class="layui-form"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">企业名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="name" required  lay-verify="required" placeholder="关键词模糊查询" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">法人</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="legalPerson" required  lay-verify="required" placeholder="法人" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">企业地址</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="address" required  lay-verify="required" placeholder="企业地址模糊查询" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">所属省份</label>
+                <div class="layui-input-inline">
+                    <select name="province" lay-verify="required">
+                        <option value="0">广东省</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">所属城市</label>
+                <div class="layui-input-inline">
+                    <select name="city" lay-verify="required">
+                        <option value="0">珠海市</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">所属地区</label>
+                <div class="layui-input-inline">
+                    <select name="area" lay-verify="required">
+                        <option value="0">请选择</option>
+                        <option value="1">金湾区</option>
+                        <option value="2">香洲区</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">所属行业</label>
+                <div class="layui-input-inline">
+                    <select name="industry" lay-verify="required">
+                        <option value="0">请选择</option>
+                        <option value="1">商务服务业</option>
+                        <option value="2">批发业</option>
+                        <option value="3">计算机、通信和其他电子设备制造业</option>
+                        <option value="4">专业技术服务业</option>
+                        <option value="5">研究和试验发展</option>
+                        <option value="6">电气机械和器材制造业</option>
+                        <option value="7">科学研究和技术服务业</option>
+                        <option value="8">仪器仪表制造业</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">企业状态</label>
+                <div class="layui-input-inline">
+                    <select name="state" lay-verify="required">
+                        <option value="0">请选择</option>
+                        <option value="1">在业</option>
+                        <option value="2">迁出</option>
+                        <option value="3">吊销</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">参保人数</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="insuredCountBegin" required  lay-verify="required" placeholder="个" autocomplete="off" class="layui-input" style="width: 50px;float: left">
+                    <label class="layui-form-label" style="float: left;width: 20px"> --- </label>
+                    <input type="text" name="insuredCountEnd" required  lay-verify="required" placeholder="个" autocomplete="off" class="layui-input" style="width: 50px">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">是否有官网</label>
+                <div class="layui-input-inline">
+                    <input type="checkbox" name="website[true]" title="是">
+                </div>
+                <label class="layui-form-label">企业类型</label>
+                <div class="layui-input-inline">
+                    <select name="type" lay-verify="required">
+                        <option value="0">请选择</option>
+                        <option value="1">有限责任公司(自然人独资)</option>
+                        <option value="2">有限责任公司(自然人投资或控股)</option>
+                        <option value="3">股份有限公司(上市、自然人投资或控股)</option>
+                        <option value="4">股份有限公司(非上市、自然人投资或控股)</option>
+                        <option value="5">其他股份有限公司(非上市)</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">注册资本</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="capitalBegin" required  lay-verify="required" placeholder="万元" autocomplete="off" class="layui-input" style="width: 70px;float: left">
+                    <label class="layui-form-label" style="float: left;width: 20px"> --- </label>
+                    <input type="text" name="capitalCountEnd" required  lay-verify="required" placeholder="万元" autocomplete="off" class="layui-input" style="width: 70px">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">注册日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="registDateStart" style="float: left">
+                </div>
+                <label class="layui-form-label">---------------</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="registDateEnd">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+
+
     <table id="demo" lay-filter="test"></table>
+
+    </div>
 
     <script src="../layui.all.js"></script>
     <script>
@@ -16,21 +139,41 @@
             table.render({
                 elem: '#demo'
                 ,height: 312
-                ,url: '/demo/table/user/' //数据接口
-                ,page: true //开启分页
+                //,url: '/demo/table/user/' //数据接口
+                //,page: true //开启分页
                 ,cols: [[ //表头
-                    {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                    ,{field: 'username', title: '用户名', width:80}
-                    ,{field: 'sex', title: '性别', width:80, sort: true}
-                    ,{field: 'city', title: '城市', width:80}
-                    ,{field: 'sign', title: '签名', width: 177}
+                    {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left', hide:true}
+                    ,{field: 'name', title: '企业名称', width:160}
+                    ,{field: 'province', title: '所属省份', width:80, sort: true}
+                    ,{field: 'city', title: '所属城市', width:80, sort: true}
+                    ,{field: 'area', title: '所属地区', width:80, sort: true}
+                    ,{field: 'legalPerson', title: '法人', width:80, sort: true}
+                    ,{field: 'capital', title: '注册资本(万)', width:80, sort: true}
+                    ,{field: 'type', title: '企业类型', width:80, sort: true}
+                    ,{field: 'state', title: '企业状态', width:80, sort: true}
+                    ,{field: 'startDate', title: '注册日期', width:80}
+                    ,{field: 'address', title: '地址', width: 177}
                     ,{field: 'experience', title: '积分', width: 80, sort: true}
                     ,{field: 'score', title: '评分', width: 80, sort: true}
                     ,{field: 'classify', title: '职业', width: 80}
-                    ,{field: 'wealth', title: '财富', width: 135, sort: true}
+                    ,{field: 'wealth', title: '财富', width: 200, sort: true}
                 ]]
+                ,data: [
+                    {
+                        id: 1, name: 1, province: 1, city:1,area:1,legalPerson:1
+                    }
+                ]
             });
 
+        });
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#registDateStart' //指定元素
+            });
+            laydate.render({
+                elem: '#registDateEnd' //指定元素
+            });
         });
     </script>
 </body>

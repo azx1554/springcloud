@@ -14,3 +14,22 @@ spring:
     static-path-pattern: /static/**
   resources:
     static-locations: classpath:/static/
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://114.251.192.236:3506/newDB?userSSL=true&useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+    username: beta
+    password: beta#2020BD7165
+
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/mapper/*.xml
+  type-aliases-package: com.eshore.crmp.data
+  type-handlers-package: com.eshore.crmp.data.encrypt
+  table:
+    auto: update
+  model:
+    pack: com.eshore.crmp.data.model
+  database:
+    type: mysql
+  configuration:
+    #控制台打印sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
