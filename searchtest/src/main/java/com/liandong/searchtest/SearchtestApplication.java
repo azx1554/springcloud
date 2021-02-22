@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,11 +28,11 @@ public class SearchtestApplication {
         SpringApplication.run(SearchtestApplication.class, args);
     }
 
-    @RequestMapping("hi")
-    public String hi() {
-        List<Map<String, Object>> test = companyMapper.test();
-        System.out.println(test);
-        return "hello world";
+    @RequestMapping("search")
+    @ResponseBody
+    public Object search(@RequestBody Map<String, Object> condition) {
+        List<Map<String, Object>> test = companyMapper.test(condition);
+        return test;
     }
 
 }

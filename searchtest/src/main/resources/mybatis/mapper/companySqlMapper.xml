@@ -2,8 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liandong.dao.ICompanyMapper">
 
-    <select id="test" resultType="java.util.HashMap">
-        select * from t_company
+    <select id="test" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+        select * from t_company where 1=1
+        <if test="condition.name != null and condition.name != ''">
+          and name like "%"#{condition.name}"%"
+        </if>
+        <if test="condition.legalPerson != null and condition.legalPerson != ''">
+          and legal_person like "%"#{condition.legalPerson}"%"
+        </if>
+        <if test="condition.address != null and condition.address != ''">
+            and address like "%"#{condition.address}"%"
+        </if>
+        <if test="condition.area != null and condition.area != ''">
+            and area = #{condition.area}
+        </if>
+        <if test="condition.industry != null and condition.industry != ''">
+            and industry = #{condition.industry}
+        </if>
+        <if test="condition.state != null and condition.state != ''">
+            and state = #{condition.state}
+        </if>
+        <if test="condition.insuredCountBegin != null and condition.insuredCountBegin != ''">
+            and insured_count >= #{condition.insuredCountBegin}
+        </if>
+        <if test="condition.insuredCountEnd != null and condition.insuredCountEnd != ''">
+            and insured_count &lt;= #{condition.insuredCountEnd}
+        </if>
+        <if test="condition.website != null and condition.website == true">
+            and website is not null
+        </if>
+        <if test="condition.type != null and condition.type != ''">
+            and type = #{condition.type}
+        </if>
+        <if test="condition.capitalBegin != null and condition.capitalBegin != ''">
+            and capital >= #{condition.capitalBegin}
+        </if>
+        <if test="condition.capitalCountEnd != null and condition.capitalCountEnd != ''">
+            and capital &lt;= #{condition.capitalCountEnd}
+        </if>
+        <if test="condition.registDateStart != null and condition.registDateStart != ''">
+            and start_date >= #{condition.registDateStart}
+        </if>
+        <if test="condition.registDateEnd != null and condition.registDateEnd != ''">
+            and start_date &lt;= #{condition.registDateEnd}
+        </if>
     </select>
 
 </mapper>
